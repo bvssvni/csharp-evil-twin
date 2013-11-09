@@ -8,7 +8,7 @@ BSD license.
 
 Alice needs to send a secret key to Bob.  
 The key is split into two parts, A and B and sent to Bob.  
-The security is based on the assumption that only Bob gets both parts.  
+Only Bob receives the two parts.  
 
 Each part Alice sends is encrypted using prime number compositions.  
 Among the 15 lowest prime numbers, 8 primes are selected to encode the message.  
@@ -16,7 +16,6 @@ The remaining 7 primes are used to distort the message.
 This equals inserting 7 fake bits for every 8 bits in the message.  
 
 Since Alice uses prime number composition, one byte is translated to 8 encrypted bytes.  
-In total therer are 16 bytes send, 8 separately to Bob for each byte Alice encrypts.  
 This results in 16 times more data, but works nicely for small files.  
 
 For an attacker only receiving one part, there are in worst case 1820 ways to interpret the message.  
