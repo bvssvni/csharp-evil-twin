@@ -19,6 +19,9 @@ namespace EvilTwinLib
 			{
 				int msg = rnd.Next(256);
 				EvilTwinModule.Encrypt(rnd, buf, (byte)msg, out a, out b);
+
+				Assert.True(EvilTwinModule.Validate(a, b));
+
 				var answer = EvilTwinModule.Decrypt(a, b);
 			
 				Assert.True(answer == msg);

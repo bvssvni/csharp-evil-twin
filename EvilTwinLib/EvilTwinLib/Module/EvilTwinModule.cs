@@ -164,6 +164,26 @@ namespace EvilTwinLib
 
 			return (byte)mask;
 		}
+
+		/// <summary>
+		/// Validates two parts to check for containing same message.
+		/// </summary>
+		public static bool Validate(UInt64 a, UInt64 b)
+		{
+			int k = 0;
+			bool isA, isB;
+			for (int i = 0; i < PRIME_LENGTH; i++)
+			{
+				isA = a % s_primes[i] == 0;
+				isB = b % s_primes[i] == 0;
+				if (isA != isB)
+				{
+					k++;
+				}
+			}
+
+			return k == 7;
+		}
 	}
 }
 
